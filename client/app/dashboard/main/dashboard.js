@@ -5,6 +5,7 @@ angular.module('projectDashboardMilesApp')
     $routeProvider
       .when('/dashboard', {
         templateUrl: 'app/dashboard/main/dashboard.html',
-        controller: 'DashboardCtrl'
+        controller: 'DashboardCtrl',
+        authenticate: true
       });
   });

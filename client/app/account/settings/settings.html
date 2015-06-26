@@ -2,6 +2,8 @@
 
 <div class="container">
   <div class="row">
+      <div class="col-sm-6">
+
     <div class="col-sm-12">
       <h1>Change Password</h1>
     </div>
@@ -34,6 +36,15 @@
 
         <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
       </form>
+    </div>
+  </div>
+
+      <div class="col-sm-6">
+          <select ng-model="projectList"  ng-options="project as project.name for project in projects" >
+
+          </select>
+
+           <button class="btn btn-lg btn-primary" ng-click="addProject(projectList._id)">Add Project</button>
     </div>
   </div>
 </div>

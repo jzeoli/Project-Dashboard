@@ -4,6 +4,7 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var mongoose = require('mongoose');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -78,6 +79,24 @@ exports.changePassword = function(req, res, next) {
     }
   });
 };
+
+
+/**
+ * Add A project to a user's dashboard
+ */
+exports.addProjects = function(req, res, next) {
+ var projID =  mongoose.Types.ObjectId(req.body.projectid);
+
+    User.findOne({_id: req.user._id}, function(err, user){
+
+         user.projects.push(projID);
+        user.save(function(err){
+         res.send(200);
+        });
+                 });
+
+};
+
 
 /**
  * Get my info

@@ -1,8 +1,26 @@
 'use strict';
 
 angular.module('projectDashboardMilesApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('SettingsCtrl', function ($scope, User, Auth, $http) {
     $scope.errors = {};
+     $scope.projects = {};
+
+
+      $http.get('/api/projects?all=true')
+    .success(function(projects){
+        $scope.projects = projects;
+
+    });
+
+
+    $scope.addProject = function(id){
+
+        $http.put('/api/users/me/project', { projectid: id })
+
+
+
+    };
+
 
     $scope.changePassword = function(form) {
       $scope.submitted = true;
@@ -18,4 +36,7 @@ angular.module('projectDashboardMilesApp')
         });
       }
 		};
+
+
+
   });

@@ -12,6 +12,8 @@ angular.module('projectDashboardMilesApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
+
+
     $scope.logout = function() {
       Auth.logout();
       $location.path('/login');

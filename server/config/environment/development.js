@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/projectdashboardmiles-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };
