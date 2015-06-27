@@ -14,13 +14,34 @@ exports.index = function(req, res) {
         .populate('projects')
     .exec(function(err, user){
          if(err) { return handleError(res, err); }
-        console.log(user)
 
     return res.json(200, user.projects);
         });
 
 
+    } else  if(req.query.all == "true" && req.user.role != "admin") {
+
+
+        var usrProjects = req.user.projects
+        var sendProjectArray = [];
+         Project.find(function (err, projects) {
+    if(err) { return handleError(res, err); }
+
+
+           for (var i=0; i<projects.length;i++ ){
+
+               if(usrProjects.indexOf(projects[i]._id) == -1 ){
+                   sendProjectArray.push(projects[i]);
+               }
+           }
+
+              return res.json(200, sendProjectArray);
+        });
+
+
     } else {
+
+
        Project.find(function (err, projects) {
     if(err) { return handleError(res, err); }
     return res.json(200, projects);
