@@ -1,14 +1,12 @@
 'use strict';
 
 angular.module('projectDashboardMilesApp')
-  .controller('ProjectListCtrl', function ($scope, $location, $http, Auth) {
+  .controller('ProjectListCtrl', function ($scope, $location, $http) {
 
-    $scope.getCurrentUser = Auth.getCurrentUser;
-
-
-    $http.get('/api/projects/user/' + $scope.getCurrentUser()._id)
+     $scope.projects = {}
+    $http.get('/api/projects')
     .success(function(projects){
-       console.log(projects)
+        $scope.projects = projects;
     });
 
 

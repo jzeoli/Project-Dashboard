@@ -1,5 +1,7 @@
 <div  ng-controller="ProjectListCtrl">
 
-
-
+<ul class="list-group">
+    <li ng-repeat="project in projects" class="list-group-item"><a href="/project/{{project._id}}">{{project.name}}</a></li>
+</ul>
+<a class="btn btn-lg btn-primary" href="/newproject">Add Project</a>
 </div>
