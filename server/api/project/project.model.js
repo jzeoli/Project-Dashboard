@@ -11,27 +11,32 @@ var ProjectSchema = new Schema({
 	stages: {
 		mockup: {
 			isDone: Boolean,
+            isActive: Boolean,
 			inititaldesignnotes: String,
 			dueDate: Date,
 			assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 		},
 	functionality: {
 		isDone: Boolean,
+        isActive: Boolean,
 		dueDate: Date,
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	content: {
 		isDone: Boolean,
+        isActive: Boolean,
 		dueDate: Date,
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	UAT: {
 		isDone: Boolean,
+        isActive: Boolean,
 		dueDate: Date,
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	QA: {
 		isDone: Boolean,
+        isActive: Boolean,
 		dueDate: Date,
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	}

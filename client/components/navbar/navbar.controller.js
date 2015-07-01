@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('projectDashboardMilesApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, $rootScope) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
@@ -10,7 +10,7 @@ angular.module('projectDashboardMilesApp')
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
-    $scope.getCurrentUser = Auth.getCurrentUser;
+    $rootScope.getCurrentUser = Auth.getCurrentUser;
 
 
 
