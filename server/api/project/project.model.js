@@ -13,27 +13,27 @@ var ProjectSchema = new Schema({
 			isDone: Boolean,
 			inititaldesignnotes: String,
 			dueDate: Date,
-			assigned: String			
+			assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 		},
 	functionality: {
 		isDone: Boolean,
 		dueDate: Date,
-		assigned: String
+		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	content: {
 		isDone: Boolean,
 		dueDate: Date,
-		assigned: String
+		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	UAT: {
 		isDone: Boolean,
 		dueDate: Date,
-		assigned: String
+		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	QA: {
 		isDone: Boolean,
 		dueDate: Date,
-		assigned: String
+		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	}
 	},
     active: Boolean

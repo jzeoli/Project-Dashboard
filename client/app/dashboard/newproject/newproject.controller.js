@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('projectDashboardMilesApp')
-    .controller('NewProjectCtrl', function ($scope, $http, $location) {
+    .controller('NewProjectCtrl', function ($scope, $http, $location, User) {
 
         $scope.project = {};
         $scope.errors = {};
-		
+		$scope.users = User.query();
 
 		$scope.switchTabs = function(tab){
 			
@@ -23,7 +23,8 @@ angular.module('projectDashboardMilesApp')
 					stages: {
 						mockup: {
 							isDone: false,
-							dueDate: $scope.project.mockupduedate		
+							dueDate: $scope.project.mockupduedate,
+                            assigned: $scope.userList._id
 						}
 					}
                 }
