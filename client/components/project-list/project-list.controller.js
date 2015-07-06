@@ -34,7 +34,6 @@ angular.module('projectDashboardMilesApp')
 
             $scope.currentProjects = projectsArray;
             $scope.ondeckProjects = onDeckArray;
-            console.log(projectsArray)
 
         }
 
@@ -46,9 +45,7 @@ angular.module('projectDashboardMilesApp')
                 $scope.seperateProjects(projects);
 
                 socket.syncUpdates('project', $scope.projects, function (event, item, object) {
-
                     $scope.seperateProjects([item]);
-
                 });
 
 

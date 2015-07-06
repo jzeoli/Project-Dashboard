@@ -1,7 +1,12 @@
 <div  ng-controller="ProjectListCtrl">
 
+    <h2>Active Projects</h2>
 <ul class="list-group">
     <li ng-repeat="currentProject in currentProjects" class="list-group-item active"><a href="/project/{{currentProject._id}}">{{currentProject.name}}</a></li>
+    </ul>
+
+    <h2>Pending Projects</h2>
+    <ul class="list-group">
     <li ng-repeat="ondeckProject in ondeckProjects" class="list-group-item ondeck"><a href="/project/{{ondeckProject._id}}">{{ondeckProject.name}}</a></li>
 </ul>
 <a class="btn btn-lg btn-primary" href="/newproject">Add Project</a>
