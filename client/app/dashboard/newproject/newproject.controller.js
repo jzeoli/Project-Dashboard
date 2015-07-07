@@ -26,17 +26,25 @@ angular.module('projectDashboardMilesApp')
 						mockup: {
 							isDone: false,
                             isActive: true,
+							tasks: [{task: "Mockup Approved", isDone: false}],
 							dueDate: projD,
                             assigned: $scope.userList._id
 						},
                         functionality: {
                             isDone: false,
                             isActive: false,
+							tasks: [
+							{task: "Homepage Complete", isDone: false},
+							{task: "All Pages Created", isDone: false},
+							{task: "Styled System Pages", isDone: false},
+							{task: "Created HTML Sitemap", isDone: false},
+							],
                             dueDate: projD.setDate(projD.getDate() + 5)
                         },
                         content: {
                             isDone: false,
                             isActive: false,
+							pages: [{title: "Contact Us", location: "/contactus", isDone:false}],
                             dueDate: projD.setDate(projD.getDate() + 5)
                         },
                         UAT: {

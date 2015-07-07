@@ -56,11 +56,17 @@ exports.index = function(req, res) {
 
 // Get a single thing
 exports.show = function(req, res) {
-  Project.findById(req.params.id, function (err, project) {
+  
+  Project.findById(req.params.id)
+  .populate(  {
+	path: 'stages.mockup.assigned',
+  select: '-salt -hashedPassword'})
+  .exec(function (err, project) {
     if(err) { return handleError(res, err); }
     if(!project) { return res.send(404); }
     return res.json(project);
   });
+  
 };
 
 

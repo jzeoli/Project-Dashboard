@@ -13,6 +13,7 @@ var ProjectSchema = new Schema({
 			isDone: Boolean,
             isActive: Boolean,
 			inititaldesignnotes: String,
+			tasks: [{task: String, isDone: Boolean}],
 			dueDate: Date,
 			assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 		},
@@ -20,24 +21,28 @@ var ProjectSchema = new Schema({
 		isDone: Boolean,
         isActive: Boolean,
 		dueDate: Date,
+		tasks: [{task: String, isDone: Boolean}],
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	content: {
 		isDone: Boolean,
         isActive: Boolean,
 		dueDate: Date,
+		pages: [{title: String, location: String, isDone: Boolean}],
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	UAT: {
 		isDone: Boolean,
         isActive: Boolean,
 		dueDate: Date,
+		tasks: [{task: String, isDone: Boolean}],
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	QA: {
 		isDone: Boolean,
         isActive: Boolean,
 		dueDate: Date,
+		tasks: [{task: String, isDone: Boolean}],
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	}
 	},
