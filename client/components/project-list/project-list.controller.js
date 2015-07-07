@@ -15,19 +15,26 @@ angular.module('projectDashboardMilesApp')
 
             for (var i = 0; i < projects.length; i++) {
 
+                var isActive = false;
+                var isInactive = false;
+
                 $.each(projects[i].stages, function (index, value) {
 
                     if (value.assigned == cu._id) {
                         if (value.isActive) {
-                            projectsArray.push(projects[i])
-                        } else {
-
-                            onDeckArray.push(projects[i])
+                            isActive = true;
+                        }  else {
+                             isInactive = true;
                         }
-
                     }
+
                 });
 
+                if (isActive == true) {
+                    projectsArray.push(projects[i])
+                } else if(isInactive == true) {
+                    onDeckArray.push(projects[i])
+                }
 
             }
 

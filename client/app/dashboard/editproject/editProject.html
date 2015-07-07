@@ -20,7 +20,7 @@
 <h2>Mockup</h2>
 <p>Assigned:
 
-<select ng-model="project.stages.mockup.assigned._id" ng-options="user._id as user.name for user in users"></select>
+<select ng-model="project.stages.mockup.assigned" ng-options="user._id as user.name for user in users"></select>
 </p>
 
 <p>Date: {{project.stages.mockup.dueDate | date:"MM/dd/yyyy" }}</p>
@@ -30,13 +30,13 @@
 <h2>Functionality</h2>
 <p>Assigned:
 
-<select ng-model="project.stages.functionality.assigned._id" ng-options="user._id as user.name for user in users" ng-change="save()"></select>
+<select ng-model="project.stages.functionality.assigned" ng-options="user._id as user.name for user in users" ng-change="save()"></select>
 </p>
 
 <h2>Content Implementation</h2>
 <p>Assigned:
 
-<select ng-model="project.stages.content.assigned._id" ng-options="user._id as user.name for user in users"></select>
+<select ng-model="project.stages.content.assigned" ng-options="user._id as user.name for user in users" ng-change="save()"></select>
 </p>
 
 <h2>UAT</h2>

@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var Project = require('./project.model');
 var User = require('./../user/user.model');
+var mongoose = require('mongoose');
 
 // Get list of things
 exports.index = function(req, res) {
@@ -58,9 +59,6 @@ exports.index = function(req, res) {
 exports.show = function(req, res) {
   
   Project.findById(req.params.id)
-  .populate(  {
-	path: 'stages.mockup.assigned',
-  select: '-salt -hashedPassword'})
   .exec(function (err, project) {
     if(err) { return handleError(res, err); }
     if(!project) { return res.send(404); }
@@ -85,3 +83,15 @@ exports.create = function(req, res) {
 function handleError(res, err) {
   return res.send(500, err);
 }
+
+
+
+exports.update = function(req, res){
+
+    Project.findOneAndUpdate({_id: req.params.id}, req.body, function(project, err) {
+            return res.json(200, project)
+    });
+
+
+};
+

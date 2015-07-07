@@ -3,10 +3,12 @@
 angular.module('projectDashboardMilesApp')
     .controller('EditProjectCtrl', function ($scope, $http, $location, $routeParams, User, Project) {
 
-		$scope.project = {};
+		$scope.project = Project.get({id: $routeParams.id})
 		$scope.users = User.query();
 		
 		
+
+
 		
 		$scope.updateProject = function(form) {
 			
@@ -22,8 +24,13 @@ angular.module('projectDashboardMilesApp')
 
 
 		$scope.save = function(){
-			console.log('here')
-		$scope.project.$save;	
+
+
+
+			Project.save({id: $routeParams.id}, $scope.project, function(res){
+
+             console.log(res);
+            })
 			
 		}
 

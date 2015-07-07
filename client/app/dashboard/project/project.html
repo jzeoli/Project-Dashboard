@@ -10,21 +10,21 @@
 
 <div class="col-lg-9">
 <h2>Mockup</h2>
-<p>Assigned: {{project.stages.mockup.assigned.name}}</p>
+<p>Assigned: {{users.mockup.name}}</p>
 <p>Date: {{project.stages.mockup.dueDate | date:"MM/dd/yyyy" }}</p>
 <ul>
 <li ng-repeat="task in project.stages.mockup.tasks"><input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
 </ul>
 
 <h2>Functionality</h2>
-<p>Assigned: {{project.stages.functionality.assigned.name}}</p>
+<p>Assigned: {{users.functionality.name}}</p>
 <p>Date: {{project.stages.functionality.dueDate | date:"MM/dd/yyyy" }}</p>
 <ul>
 <li ng-repeat="task in project.stages.functionality.tasks"><input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
 </ul>
 
 <h2>Content Implementation</h2>
-<p>Assigned: {{project.stages.content.assigned.name}}</p>
+<p>Assigned: {{users.content.name}}</p>
 <p>Date: {{project.stages.content.dueDate | date:"MM/dd/yyyy" }}</p>
 <ul>
 <li ng-repeat="page in project.stages.content.pages"><input type="checkbox" ng-class="incomplete"> {{page.title}}</li>
