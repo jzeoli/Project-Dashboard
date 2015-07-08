@@ -6,7 +6,7 @@ var User = require('./../user/user.model');
 var mongoose = require('mongoose');
 
 // Get list of things
-exports.index = function(req, res) {
+/*exports.index = function(req, res) {
 
     var usrRole = req.user.role;
 
@@ -51,6 +51,38 @@ exports.index = function(req, res) {
     }
 
 
+};*/
+
+// Get list of things
+exports.index = function(req, res) {
+	
+	var usrRole = req.user.role;
+	 if (usrRole == "user"){
+	var userProjects = [];	 
+		 
+		  Project.find(function (err, projects) {
+    if(err) { return handleError(res, err); }
+	
+	for (var i=0; i<projects.length;i++){
+	for (var key in projects[i].stages){
+		if (projects[i].stages.hasOwnProperty(key)){
+			var obj = projects[i].stages[key];
+				if(obj && obj.assigned){
+					if(obj.assigned.toString() == req.user._id.toString()){
+					userProjects.push(projects[i]);
+					}
+				}
+			}
+		
+	}
+		
+	}
+	
+    return res.json(200, userProjects);
+        });
+		 
+	 }
+	
 };
 
 

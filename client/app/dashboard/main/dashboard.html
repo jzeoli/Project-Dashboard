@@ -8,12 +8,12 @@
 </div>
 
 <div class="col-lg-9">
-  <h1>This Is the Dashboard</h1>
 
 
-    <h3>Upcoming Deliverables</h3>
-
-
+    <h1>My Upcoming Deliverables</h1>
+<ul class="list-group">
+<li class="list-group-item" ng-repeat="project in projects">{{project.name}} - {{activeSection.completedTasks}}/{{activeSection.totalTasks}}</li>
+</ul>
 
 </div>
 

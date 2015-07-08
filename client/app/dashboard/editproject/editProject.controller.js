@@ -7,32 +7,15 @@ angular.module('projectDashboardMilesApp')
 		$scope.users = User.query();
 		
 		
-
-
 		
-		$scope.updateProject = function(form) {
-			
-			if (form.$valid) {
-				
-				
-			}
-			
-			
-		}
-
-
-
-
 		$scope.save = function(){
-
-
-
 			Project.save({id: $routeParams.id}, $scope.project, function(res){
-
-             console.log(res);
             })
 			
 		}
+		
+		
+		
 
 
 
