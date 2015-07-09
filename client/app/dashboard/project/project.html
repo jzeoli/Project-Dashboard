@@ -1,42 +1,49 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="container">
-<div class="row">
-<div class="col-lg-3">
-<h1>{{project.name}}</h1>
-<p><em>{{project.info}}</em></p>
-<a href="/editProject/{{project._id}}" class="btn">Edit Project</a>
-</div>
+    <div class="row">
+        <div class="col-lg-3">
+            <h1>{{project.name}}</h1>
+            <p><em>{{project.info}}</em>
+            </p>
+            <a href="/editProject/{{project._id}}" class="btn">Edit Project</a>
+        </div>
 
-<div class="col-lg-9">
-<h2>Mockup</h2>
-<p>Assigned: {{users.mockup.name}}</p>
-<p>Date: {{project.stages.mockup.dueDate | date:"MM/dd/yyyy" }}</p>
-<ul>
-<li ng-repeat="task in project.stages.mockup.tasks"><input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
-</ul>
-
-
-
-<h2>Functionality</h2>
-<p>Assigned: {{users.functionality.name}}</p>
-<p>Date: {{project.stages.functionality.dueDate | date:"MM/dd/yyyy" }}</p>
-<ul>
-<li ng-repeat="task in project.stages.functionality.tasks"><input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
-</ul>
-
-<h2>Content Implementation</h2>
-<p>Assigned: {{users.content.name}}</p>
-<p>Date: {{project.stages.content.dueDate | date:"MM/dd/yyyy" }}</p>
-<ul>
-<li ng-repeat="page in project.stages.content.pages"><input type="checkbox" ng-class="incomplete"> {{page.title}}</li>
-</ul>
+        <div class="col-lg-9">
+            <h2>Mockup</h2>
+            <p>Assigned: {{users.mockup.name}}</p>
+            <p>Date: {{project.stages.mockup.dueDate | date:"MM/dd/yyyy" }}</p>
+            <ul>
+                <li ng-repeat="task in project.stages.mockup.tasks">
+                    <input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
+            </ul>
+            <add-task ng-model="project.stages.mocku"></add-task>
 
 
-<h2>UAT</h2>
+
+            <h2>Functionality</h2>
+            <p>Assigned: {{users.functionality.name}}</p>
+            <p>Date: {{project.stages.functionality.dueDate | date:"MM/dd/yyyy" }}</p>
+            <ul>
+                <li ng-repeat="task in project.stages.functionality.tasks">
+                    <input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
+            </ul>
+            <add-task ng-model="project.stages.functionality"></add-task>
 
 
-<h2>QA</h2>
-</div>
-</div>
+            <h2>Content Implementation</h2>
+            <p>Assigned: {{users.content.name}}</p>
+            <p>Date: {{project.stages.content.dueDate | date:"MM/dd/yyyy" }}</p>
+            <ul>
+                <li ng-repeat="page in project.stages.content.pages">
+                    <input type="checkbox" ng-class="incomplete"> {{page.title}}</li>
+            </ul>
+
+
+            <h2>UAT</h2>
+
+
+            <h2>QA</h2>
+        </div>
+    </div>
 </div>
