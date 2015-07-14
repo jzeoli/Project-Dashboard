@@ -11,8 +11,17 @@ angular.module('projectDashboardMilesApp')
         controller:'AddTaskCtrl',
          link: function(scope, element, attrs, ngModel) {
 
+             element.children('.add-task').children('form').children('input[name=stage]').val(attrs.ngModel);
+
              element.children('a').on('click', function(){
-              //element.children('div').hide();
+                 var el = element.children('.add-task');
+
+               if(el.is(':visible')){
+                   el.hide();
+                } else {
+                    el.show();
+                }
+
              });
 
          }

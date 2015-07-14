@@ -1,7 +1,8 @@
 <a href="#">Add New Task</a>
-<div class="add-task">
+<div class="add-task" style="display:none;">
     <form name="form" ng-submit="addTask(form)" novalidate>
-        <input type="text" name="task">
+        <input type="text" name="task" ng-model="newFormInput.task">
+        <input type="hidden" name="stage" ng-model="newFormInput.currentStage">
         <button type="submit">Add Task</button>
     </form>
 </div>
