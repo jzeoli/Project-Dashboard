@@ -5,7 +5,11 @@ angular.module('projectDashboardMilesApp')
 
 
 
+
+
+
         $scope.projects = Project.query(function (result) {
+            console.log(result)
             for (var project in result) {
                 for (var key in result[project].stages) {
                     if (result[project].stages[key].isActive) {
@@ -15,17 +19,18 @@ angular.module('projectDashboardMilesApp')
                 }
 
 
-               for (var key in $scope.projects[project].activeSection.tasks) {
-                $scope.projects[project].activeSection.completedTasks = 0;
-                if ($scope.projects[project].activeSection.tasks[key].isDone) {
-                    $scope.projects[project].activeSection.completedTasks++;
+                if ($scope.projects[project].activeSection) {
+                    for (var key in $scope.projects[project].activeSection.tasks) {
+                        $scope.projects[project].activeSection.completedTasks = 0;
+                        if ($scope.projects[project].activeSection.tasks[key].isDone) {
+                            $scope.projects[project].activeSection.completedTasks++;
+                        }
+                    }
+
+
                 }
-            }
-
 
             }
-
-
         });
 
 

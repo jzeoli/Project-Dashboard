@@ -1,6 +1,6 @@
-<a href="#" ng-click="showEditor()">Add New Task</a>
+<a href="#">Add New Task</a>
 <div class="add-task">
-    <form>
+    <form name="form" ng-submit="addTask(form)" novalidate>
         <input type="text" name="task">
         <button type="submit">Add Task</button>
     </form>

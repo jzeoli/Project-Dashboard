@@ -13,10 +13,6 @@ angular.module('projectDashboardMilesApp')
             })
 			
 		}
-		
-		
-		
-
 
 
 
