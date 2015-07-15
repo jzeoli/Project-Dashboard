@@ -9,9 +9,8 @@ angular.module('projectDashboardMilesApp')
       restrict: 'E',
        templateUrl: 'components/project/addTask.html',
         controller:'AddTaskCtrl',
+        scope:{stage: '@', project: '='},
          link: function(scope, element, attrs, ngModel) {
-
-             element.children('.add-task').children('form').children('input[name=stage]').val(attrs.ngModel);
 
              element.children('a').on('click', function(){
                  var el = element.children('.add-task');

@@ -17,7 +17,7 @@
                 <li ng-repeat="task in project.stages.mockup.tasks">
                     <input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
             </ul>
-            <add-task ng-model="mockup"></add-task>
+            <add-task stage="mockup" project="project"></add-task>
 
 
 
@@ -28,7 +28,7 @@
                 <li ng-repeat="task in project.stages.functionality.tasks">
                     <input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
             </ul>
-            <add-task ng-model="functionality"></add-task>
+            <add-task stage="functionality" project="project"></add-task>
 
 
             <h2>Content Implementation</h2>

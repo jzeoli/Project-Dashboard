@@ -3,13 +3,8 @@
 angular.module('projectDashboardMilesApp')
     .controller('DashboardCtrl', function ($scope, Project) {
 
-
-
-
-
-
         $scope.projects = Project.query(function (result) {
-            console.log(result)
+
             for (var project in result) {
                 for (var key in result[project].stages) {
                     if (result[project].stages[key].isActive) {

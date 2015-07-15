@@ -10,6 +10,7 @@ var ProjectSchema = new Schema({
     info: String,
 	stages: {
 		mockup: {
+            name: String,
 			isDone: Boolean,
             isActive: Boolean,
 			inititaldesignnotes: String,
@@ -18,6 +19,7 @@ var ProjectSchema = new Schema({
 			assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 		},
 	functionality: {
+        name: String,
 		isDone: Boolean,
         isActive: Boolean,
 		dueDate: Date,
@@ -25,6 +27,7 @@ var ProjectSchema = new Schema({
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	content: {
+        name: String,
 		isDone: Boolean,
         isActive: Boolean,
 		dueDate: Date,
@@ -32,6 +35,7 @@ var ProjectSchema = new Schema({
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	UAT: {
+        name: String,
 		isDone: Boolean,
         isActive: Boolean,
 		dueDate: Date,
@@ -39,6 +43,7 @@ var ProjectSchema = new Schema({
 		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
 	},
 	QA: {
+        name: String,
 		isDone: Boolean,
         isActive: Boolean,
 		dueDate: Date,
