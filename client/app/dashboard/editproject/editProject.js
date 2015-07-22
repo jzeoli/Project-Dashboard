@@ -4,7 +4,7 @@ angular.module('projectDashboardMilesApp')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/editProject/:id', {
-        templateUrl: 'app/dashboard/editProject/editProject.html',
+        templateUrl: 'app/dashboard/editproject/editProject.html',
         controller: 'EditProjectCtrl',
         authenticate: true
       });
