@@ -10,14 +10,17 @@
 <div class="col-lg-9">
 
 
+
+
     <h1>My Upcoming Deliverables</h1>
 <ul class="list-group">
-<li class="list-group-item" ng-repeat="project in projects | orderBy: 'activeSection.dueDate'">{{project.name}} - {{project.activeSection.completedTasks}}/{{project.activeSection.totalTasks}}
+<li class="list-group-item" ng-repeat="activeProject in activeProjects | orderBy: 'stage.dueDate'">{{activeProject.name}} - {{activeProject.completedTasks}}/{{activeProject.totalTasks}}
 
-    <span class="upcoming-date">{{project.activeSection.dueDate | date: mm/dd/yyyy}}</span>
+    <span class="upcoming-date">{{activeProject.stage.dueDate | date: mm/dd/yyyy}}</span>
 
     </li>
 </ul>
+
 
 </div>
 

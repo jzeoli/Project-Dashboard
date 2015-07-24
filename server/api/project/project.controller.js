@@ -5,53 +5,7 @@ var Project = require('./project.model');
 var User = require('./../user/user.model');
 var mongoose = require('mongoose');
 
-// Get list of things
-/*exports.index = function(req, res) {
 
-    var usrRole = req.user.role;
-
-    if (usrRole == "user" && req.query.all != "true" ){
-    User.findById(req.user._id)
-        .populate('projects')
-    .exec(function(err, user){
-         if(err) { return handleError(res, err); }
-
-    return res.json(200, user.projects);
-        });
-
-
-    } else  if(req.query.all == "true" && req.user.role != "admin") {
-
-
-        var usrProjects = req.user.projects
-        var sendProjectArray = [];
-         Project.find(function (err, projects) {
-    if(err) { return handleError(res, err); }
-
-
-           for (var i=0; i<projects.length;i++ ){
-
-               if(usrProjects.indexOf(projects[i]._id) == -1 ){
-                   sendProjectArray.push(projects[i]);
-               }
-           }
-
-              return res.json(200, sendProjectArray);
-        });
-
-
-    } else {
-
-
-       Project.find(function (err, projects) {
-    if(err) { return handleError(res, err); }
-    return res.json(200, projects);
-        });
-
-    }
-
-
-};*/
 
 // Get list of things
 exports.index = function(req, res) {
@@ -60,7 +14,7 @@ exports.index = function(req, res) {
 	 if (usrRole == "user"){
 	var userProjects = [];	 
 		 
-		  Project.find(function (err, projects) {
+	Project.find(function (err, projects) {
     if(err) { return handleError(res, err); }
 	
 	for (var i=0; i<projects.length;i++){
@@ -68,14 +22,14 @@ exports.index = function(req, res) {
 		if (projects[i].stages.hasOwnProperty(key)){
 			var obj = projects[i].stages[key];
 				if(obj && obj.assigned){
-					if(obj.assigned.toString() == req.user._id.toString()){
+					if(obj.assigned.toString() == req.user._id.toString() && userProjects.indexOf(projects[i]) == -1 ){
 					userProjects.push(projects[i]);
 					}
 				}
 			}
 		
 	}
-		
+
 	}
 	
     return res.json(200, userProjects);

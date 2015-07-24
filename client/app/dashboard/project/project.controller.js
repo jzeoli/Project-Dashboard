@@ -3,7 +3,7 @@
 angular.module('projectDashboardMilesApp')
     .controller('ProjectCtrl', function ($scope, $http, $location, $routeParams, User) {
         $scope.project = {};
-        $scope.users = {}
+        $scope.users = {};
 
         $http.get("/api/projects/" + $routeParams.id)
             .success(function (project) {
@@ -22,5 +22,15 @@ angular.module('projectDashboardMilesApp')
                         id: $scope.project.stages.content.assigned
                     })
                 }
-            })
+            });
+
+
+    $scope.taskCheck = function(task){
+
+       task.isDone = true;
+
+    }
+
+
+
     });

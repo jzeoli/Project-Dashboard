@@ -15,7 +15,7 @@
             <p>Date: {{project.stages.mockup.dueDate | date:"MM/dd/yyyy" }}</p>
             <ul>
                 <li ng-repeat="task in project.stages.mockup.tasks">
-                    <input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
+                    <input type="checkbox" ng-model="taskComplete" ng-class="incomplete" ng-change="taskCheck(task)"> {{task.task}}</li>
             </ul>
             <add-task stage="mockup" project="project"></add-task>
 
@@ -26,7 +26,7 @@
             <p>Date: {{project.stages.functionality.dueDate | date:"MM/dd/yyyy" }}</p>
             <ul>
                 <li ng-repeat="task in project.stages.functionality.tasks">
-                    <input type="checkbox" ng-class="incomplete"> {{task.task}}</li>
+                    <input type="checkbox" ng-model="taskComplete"  ng-class="incomplete" ng-change="taskCheck(task)"> {{task.task}}</li>
             </ul>
             <add-task stage="functionality" project="project"></add-task>
 

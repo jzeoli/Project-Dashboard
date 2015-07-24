@@ -18,6 +18,8 @@ angular.module('projectDashboardMilesApp')
                 var isActive = false;
                 var isInactive = false;
 
+
+
                 $.each(projects[i].stages, function (index, value) {
 
                     if (value.assigned == cu._id) {
@@ -39,8 +41,36 @@ angular.module('projectDashboardMilesApp')
             }
 
 
-            $scope.currentProjects = projectsArray;
-            $scope.ondeckProjects = onDeckArray;
+
+            function uniqueArray(a){
+             var uniqueArray = [];
+
+                for (var item in a){
+                 if(uniqueArray == []){
+                    uniqueArray.push(a[item]);
+                 } else {
+                       var isUnique = true;
+                     for (var x in uniqueArray){
+                         if(uniqueArray[x]._id == a[item]._id){
+                             isUnique = false
+                         }
+
+                     }
+
+                     if (isUnique){
+                         uniqueArray.push(a[item])
+
+                     }
+
+                 }
+
+                }
+
+                return uniqueArray;
+            }
+
+            $scope.currentProjects = uniqueArray(projectsArray);
+            $scope.ondeckProjects =  uniqueArray(onDeckArray);
 
         }
 
@@ -51,6 +81,8 @@ angular.module('projectDashboardMilesApp')
 
                 $scope.seperateProjects(projects);
 
+
+            //NEED TO FIX THIS
                 socket.syncUpdates('project', $scope.projects, function (event, item, object) {
                     $scope.seperateProjects([item]);
                 });
