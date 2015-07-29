@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('projectDashboardMilesApp')
-    .controller('ProjectCtrl', function ($scope, $http, $location, $routeParams, User) {
+    .controller('ProjectCtrl', function ($scope, $http, $location, $routeParams, User, Project) {
         $scope.project = {};
         $scope.users = {};
+    $scope.uploadUrl = "/api/projects/" + $routeParams.id + "/upload";
 
         $http.get("/api/projects/" + $routeParams.id)
             .success(function (project) {
@@ -26,8 +27,9 @@ angular.module('projectDashboardMilesApp')
 
 
     $scope.taskCheck = function(task){
-
        task.isDone = true;
+       Project.save({id: $routeParams.id}, $scope.project, function(res){
+            })
 
     }
 

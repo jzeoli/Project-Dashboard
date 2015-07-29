@@ -14,10 +14,20 @@
             <p>Assigned: {{users.mockup.name}}</p>
             <p>Date: {{project.stages.mockup.dueDate | date:"MM/dd/yyyy" }}</p>
             <ul>
-                <li ng-repeat="task in project.stages.mockup.tasks">
-                    <input type="checkbox" ng-model="taskComplete" ng-class="incomplete" ng-change="taskCheck(task)"> {{task.task}}</li>
+                <li ng-repeat="task in project.stages.mockup.tasks"  ng-class="task.isDone ? 'complete' : 'incomplete'">
+                    <input type="checkbox" ng-model="taskComplete" ng-checked="task.isDone" ng-change="taskCheck(task)"> {{task.task}}</li>
             </ul>
             <add-task stage="mockup" project="project"></add-task>
+
+
+            <form id=  "uploadForm"
+     enctype   =  "multipart/form-data"
+     action    =  "{{uploadUrl}}"
+     method    =  "post"
+>
+<input type="file" name="document" />
+<input type="submit" value="Upload Document" name="submit">
+</form>
 
 
 
@@ -25,8 +35,8 @@
             <p>Assigned: {{users.functionality.name}}</p>
             <p>Date: {{project.stages.functionality.dueDate | date:"MM/dd/yyyy" }}</p>
             <ul>
-                <li ng-repeat="task in project.stages.functionality.tasks">
-                    <input type="checkbox" ng-model="taskComplete"  ng-class="incomplete" ng-change="taskCheck(task)"> {{task.task}}</li>
+                <li ng-repeat="task in project.stages.functionality.tasks" >
+                    <input type="checkbox" ng-model="taskComplete"  ng-change="taskCheck(task)"> {{task.task}}</li>
             </ul>
             <add-task stage="functionality" project="project"></add-task>
 
@@ -35,7 +45,7 @@
             <p>Assigned: {{users.content.name}}</p>
             <p>Date: {{project.stages.content.dueDate | date:"MM/dd/yyyy" }}</p>
             <ul>
-                <li ng-repeat="page in project.stages.content.pages">
+                <li ng-repeat="page in project.stages.content.pages" >
                     <input type="checkbox" ng-class="incomplete"> {{page.title}}</li>
             </ul>
 

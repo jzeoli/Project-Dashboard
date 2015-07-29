@@ -4,6 +4,8 @@ var _ = require('lodash');
 var Project = require('./project.model');
 var User = require('./../user/user.model');
 var mongoose = require('mongoose');
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 
 
@@ -80,4 +82,11 @@ exports.update = function(req, res){
 
 
 };
+
+
+exports.upload = function(req, res){
+   res.send(200, err);
+
+};
+
 

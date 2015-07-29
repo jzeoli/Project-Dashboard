@@ -16,7 +16,8 @@ var ProjectSchema = new Schema({
 			inititaldesignnotes: String,
 			tasks: [{task: String, isDone: Boolean}],
 			dueDate: Date,
-			assigned: {type: Schema.Types.ObjectId, ref: 'User' }
+			assigned: {type: Schema.Types.ObjectId, ref: 'User' },
+            documents:[{url: String}]
 		},
 	functionality: {
         name: String,

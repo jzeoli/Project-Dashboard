@@ -44,3 +44,6 @@
 .active a{font-weight: bold}
 .ondeck a{font-style: italic; color:#ccc;}
 .upcoming-date{float:right;}
+
+
+.complete{font-style: italic; text-decoration: line-through;}

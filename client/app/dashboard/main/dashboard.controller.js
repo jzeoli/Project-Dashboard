@@ -17,13 +17,14 @@ angular.module('projectDashboardMilesApp')
 
                     if (result[project].stages[stage].isActive && result[project].stages[stage].assigned == Auth.getCurrentUser()._id) {
 
-                        var completedTasks;
+                        var completedTasks = 0;
 
                         for (var task in result[project].stages[stage].tasks) {
-                            completedTasks = 0;
+
 
                             if (result[project].stages[stage].tasks[task].isDone) {
                                 completedTasks++;
+
                             }
                         }
 
