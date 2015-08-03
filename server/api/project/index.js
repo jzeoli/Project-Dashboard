@@ -10,7 +10,7 @@ router.get('/',  auth.isAuthenticated(), controller.index);
 router.get('/:id',  auth.isAuthenticated(), controller.show);
 router.post('/',  auth.isAuthenticated(), controller.create);
 router.post('/:id',  auth.isAuthenticated(), controller.update);
-router.post('/:id/upload',  auth.isAuthenticated(), controller.upload);
+router.post('/:id/upload', controller.upload);
 
 //router.put('/dashboard/:id', controller.update);
 //router.patch('/dashboard/:id', controller.update);

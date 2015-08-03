@@ -85,7 +85,7 @@ exports.update = function(req, res){
 
 
 exports.upload = function(req, res){
-   res.send(200, err);
+  return  res.json(200);
 
 };
 

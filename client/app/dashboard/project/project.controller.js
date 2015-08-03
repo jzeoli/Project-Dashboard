@@ -34,5 +34,12 @@ angular.module('projectDashboardMilesApp')
     }
 
 
+    $scope.upload = function(form){
+     console.log(form)
+
+    }
+
+
+
 
     });

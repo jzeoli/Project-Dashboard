@@ -16,6 +16,7 @@ var path = require('path');
 var config = require('./environment');
 var passport = require('passport');
 var multer  = require('multer');
+var fs = require('fs');
 
 
 module.exports = function(app) {
@@ -31,19 +32,32 @@ module.exports = function(app) {
   app.use(cookieParser());
   app.use(passport.initialize());
 
+
     app.use(multer({
         dest: './uploads/',
+    changeDest: function(dest, req, res){
+        console.log(res)
+        dest += '/haha';
+
+        if (!fs.existsSync(dest)) {
+     fs.mkdirSync(dest);
+}
+
+        return dest;
+    },
+
         rename: function (fieldname, filename) {
-            //return filename + Date.now();
+            return filename + Date.now();
         },
         onFileUploadStart: function (file) {
-            console.log(file.originalname + ' is starting ...')
+           // console.log(file.originalname + ' is starting ...')
         },
         onFileUploadComplete: function (file) {
             //console.log(file.fieldname + ' uploaded to  ' + file.path)
 
         }
     }));
+
 
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
