@@ -45,9 +45,9 @@
             </ul>
             <add-task stage="functionality" project="project"></add-task>
 
-            <form ng-submit="upload(form)">
+            <form ng-submit="uploadFile()">
 
-            <input type="file" name="document" ng-file-select="onFileSelect($files)"/>
+            <input type="file" name="document" onchange="angular.element(this).scope().onFileSelect(this)" ng-model="form.file"/>
             <input type="submit" value="Upload Document" name="submit">
 
             </form>
