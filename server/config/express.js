@@ -33,10 +33,10 @@ module.exports = function(app) {
   app.use(passport.initialize());
 
 
-    app.use(multer({
+    /*app.use(multer({
         dest: './uploads/',
     changeDest: function(dest, req, res){
-        console.log(res)
+        console.log(req.params)
         dest += '/haha';
 
         if (!fs.existsSync(dest)) {
@@ -56,7 +56,7 @@ module.exports = function(app) {
             //console.log(file.fieldname + ' uploaded to  ' + file.path)
 
         }
-    }));
+    }));*/
 
 
   if ('production' === env) {

@@ -5,6 +5,7 @@ angular.module('projectDashboardMilesApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+    'ngFileUpload',
   'btford.socket-io'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {

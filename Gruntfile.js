@@ -108,6 +108,7 @@ module.exports = function (grunt) {
       }
     },
 
+
     // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
       options: {
@@ -495,6 +496,7 @@ module.exports = function (grunt) {
     },
   });
 
+
   // Used for delaying livereload until after server has restarted
   grunt.registerTask('wait', function () {
     grunt.log.ok('Waiting for server reload...');
@@ -506,6 +508,8 @@ module.exports = function (grunt) {
       done();
     }, 1500);
   });
+
+
 
   grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
     this.async();
@@ -604,6 +608,7 @@ module.exports = function (grunt) {
     'rev',
     'usemin'
   ]);
+
 
   grunt.registerTask('default', [
     'newer:jshint',

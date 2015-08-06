@@ -32,6 +32,10 @@
 
 
 
+
+
+
+
             <h2>Functionality</h2>
             <p>Assigned: {{users.functionality.name}}</p>
             <p>Date: {{project.stages.functionality.dueDate | date:"MM/dd/yyyy" }}</p>
@@ -40,6 +44,13 @@
                     <input type="checkbox" ng-model="taskComplete"  ng-change="taskCheck(task)"> {{task.task}}</li>
             </ul>
             <add-task stage="functionality" project="project"></add-task>
+
+            <form ng-submit="upload(form)">
+
+            <input type="file" name="document" ng-file-select="onFileSelect($files)"/>
+            <input type="submit" value="Upload Document" name="submit">
+
+            </form>
 
 
             <h2>Content Implementation</h2>
