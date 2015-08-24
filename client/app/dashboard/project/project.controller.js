@@ -6,27 +6,19 @@ angular.module('projectDashboardMilesApp')
         $scope.users = {};
         $scope.form = {}
         $scope.selectedFile=[]
-    $scope.uploadUrl = "/api/projects/" + $routeParams.id + "/upload";
+        $scope.uploadUrl = "/api/projects/" + $routeParams.id + "/upload";
 
+    
+    
         $http.get("/api/projects/" + $routeParams.id)
             .success(function (project) {
                 $scope.project = project;
 
-                $scope.users.mockup = User.get({
-                    id: $scope.project.stages.mockup.assigned
-                })
-                if ($scope.project.stages.functionality.assigned) {
-                    $scope.users.functionality = User.get({
-                        id: $scope.project.stages.functionality.assigned
-                    })
-                }
-                if ($scope.project.stages.content.assigned) {
-                    $scope.users.content = User.get({
-                        id: $scope.project.stages.content.assigned
-                    })
-                }
+               
             });
 
+    
+    
 
     $scope.taskCheck = function(task){
        task.isDone = true;
@@ -35,6 +27,8 @@ angular.module('projectDashboardMilesApp')
 
     }
 
+    
+    
      $scope.uploadFile = function () {
                 var file = $scope.selectedFile[0];
                 $scope.upload = Upload.upload({

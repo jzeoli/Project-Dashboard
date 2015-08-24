@@ -10,62 +10,14 @@
         </div>
 
         <div class="col-lg-9">
-            <h2>Mockup</h2>
-            <p>Assigned: {{users.mockup.name}}</p>
-            <p>Date: {{project.stages.mockup.dueDate | date:"MM/dd/yyyy" }}</p>
-            <ul>
-                <li ng-repeat="task in project.stages.mockup.tasks"  ng-class="task.isDone ? 'complete' : 'incomplete'">
-                    <input type="checkbox" ng-model="taskComplete" ng-checked="task.isDone" ng-change="taskCheck(task)"> {{task.task}}</li>
-            </ul>
-            <add-task stage="mockup" project="project"></add-task>
-
-
-            <form id=  "uploadForm"
-     enctype   =  "multipart/form-data"
-     action    =  "{{uploadUrl}}"
-     method    =  "post"
->
-<input type="file" name="document" />
- <input type="hidden" value="test" name="folder">
-<input type="submit" value="Upload Document" name="submit">
-</form>
-
-
-
-
-
-
-
-            <h2>Functionality</h2>
-            <p>Assigned: {{users.functionality.name}}</p>
-            <p>Date: {{project.stages.functionality.dueDate | date:"MM/dd/yyyy" }}</p>
-            <ul>
-                <li ng-repeat="task in project.stages.functionality.tasks" >
-                    <input type="checkbox" ng-model="taskComplete"  ng-change="taskCheck(task)"> {{task.task}}</li>
-            </ul>
-            <add-task stage="functionality" project="project"></add-task>
-
-            <form ng-submit="uploadFile()">
-
-            <input type="file" name="document" onchange="angular.element(this).scope().onFileSelect(this)" ng-model="form.file"/>
-            <input type="submit" value="Upload Document" name="submit">
-
-            </form>
-
-
-            <h2>Content Implementation</h2>
-            <p>Assigned: {{users.content.name}}</p>
-            <p>Date: {{project.stages.content.dueDate | date:"MM/dd/yyyy" }}</p>
-            <ul>
-                <li ng-repeat="page in project.stages.content.pages" >
-                    <input type="checkbox" ng-class="incomplete"> {{page.title}}</li>
-            </ul>
-
-
-            <h2>UAT</h2>
-
-
-            <h2>QA</h2>
+  
+            <div class="section" ng-repeat="stage in project.stages" ng-if="stage.isActive">
+            
+            
+            
+            </div>
+            
+            
         </div>
     </div>
 </div>

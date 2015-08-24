@@ -22,8 +22,7 @@ angular.module('projectDashboardMilesApp')
                 var projObj = {
                     name: $scope.project.name,
                     info: $scope.project.info,
-					stages: {
-						mockup: {
+					stages: [{
                             name: "mockup",
 							isDone: false,
                             isActive: true,
@@ -31,7 +30,7 @@ angular.module('projectDashboardMilesApp')
 							dueDate: projD,
                             assigned: $scope.userList._id
 						},
-                        functionality: {
+                         {
                             name: "functionality",
                             isDone: false,
                             isActive: false,
@@ -43,27 +42,28 @@ angular.module('projectDashboardMilesApp')
 							],
                             dueDate: projD.setDate(projD.getDate() + 5)
                         },
-                        content: {
+                         {
                             name: "content",
                             isDone: false,
                             isActive: false,
-							pages: [{title: "Contact Us", location: "/contactus", isDone:false}],
                             dueDate: projD.setDate(projD.getDate() + 5)
                         },
-                        UAT: {
+                      {
                             name: "UAT",
                             isDone: false,
                             isActive: false,
                             dueDate: projD.setDate(projD.getDate() + 5)
                         },
-                        QA: {
+                        {
                             name: "QA",
                             isDone: false,
                             isActive: false,
                             dueDate: projD.setDate(projD.getDate() + 5)
-                        }
+                        }]
 					}
-                }
+                
+                
+
 
                 $http.post('/api/projects', projObj)
                     .success(function(){

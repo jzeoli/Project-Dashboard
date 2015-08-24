@@ -8,8 +8,7 @@ var mongoose = require('mongoose'),
 var ProjectSchema = new Schema({
     name: String,
     info: String,
-	stages: {
-		mockup: {
+	stages: [{
             name: String,
 			isDone: Boolean,
             isActive: Boolean,
@@ -18,40 +17,7 @@ var ProjectSchema = new Schema({
 			dueDate: Date,
 			assigned: {type: Schema.Types.ObjectId, ref: 'User' },
             documents:[{url: String}]
-		},
-	functionality: {
-        name: String,
-		isDone: Boolean,
-        isActive: Boolean,
-		dueDate: Date,
-		tasks: [{task: String, isDone: Boolean}],
-		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
-	},
-	content: {
-        name: String,
-		isDone: Boolean,
-        isActive: Boolean,
-		dueDate: Date,
-		pages: [{title: String, location: String, isDone: Boolean}],
-		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
-	},
-	UAT: {
-        name: String,
-		isDone: Boolean,
-        isActive: Boolean,
-		dueDate: Date,
-		tasks: [{task: String, isDone: Boolean}],
-		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
-	},
-	QA: {
-        name: String,
-		isDone: Boolean,
-        isActive: Boolean,
-		dueDate: Date,
-		tasks: [{task: String, isDone: Boolean}],
-		assigned: {type: Schema.Types.ObjectId, ref: 'User' }
-	}
-	},
+		}],
     active: Boolean
 });
 
